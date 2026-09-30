@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BorrowLoop - Community Sharing Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Borrow<span>Loop</span></div>
+    <nav>
+      <button class="navbtn" onclick="showPage('home')">Browse</button>
+      <button class="navbtn protected-nav" onclick="showPage('list')">List Item</button>
+      <button class="navbtn protected-nav" onclick="showPage('bookings')">Bookings</button>
+      <button class="navbtn protected-nav" onclick="showPage('profile')">Profile</button>
+      <button id="authNavBtn" class="primary" style="padding:8px 12px;font-size:13px" onclick="openAuthModal()">Login</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HOME PAGE -->
+  <section id="home" class="page active">
+    <div class="hero">
+      <div>
+        <div class="muted">COMMUNITY SHARING MARKETPLACE</div>
+        <h1>Borrow more.<br><span>Buy less.</span></h1>
+        <p>Find useful items from people around your community instead of buying equipment you only need once.</p>
+        <button class="primary" onclick="document.getElementById('items').scrollIntoView()">Find an item</button>
+      </div>
+      <div class="hero-card">
+        <h2>How BorrowLoop works</h2>
+        <p>1. Browse an item → 2. Request a booking → 3. Confirm & pay → 4. Pick up → 5. Return → 6. Review</p>
+        <div class="tag">Verified users</div>
+        <div class="tag">Secure payment</div>
+        <div class="tag">Local sharing</div>
+      </div>
+    </div>
+
+    <div class="search">
+      <input id="searchInput" placeholder="Search tools, equipment, items..." oninput="renderItems()">
+      <button class="primary" onclick="useLocation()">📍 Near me</button>
+    </div>
+
+    <div id="items">
+      <div class="section-title">
+        <h2>Available nearby</h2>
+        <div class="filters">
+          <button class="filter active" onclick="setCategory('All',this)">All</button>
+          <button class="filter" onclick="setCategory('Tools',this)">Tools</button>
+          <button class="filter" onclick="setCategory('Cleaning',this)">Cleaning</button>
+          <button class="filter" onclick="setCategory('Outdoor',this)">Outdoor</button>
+        </div>
+      </div>
+      <div id="itemGrid" class="grid"></div>
+    </div>
+  </section>
+
+  <!-- LIST ITEM PAGE -->
+  <section id="list" class="page">
+    <h1>List an item</h1>
+    <p class="muted">Let your unused household items help someone nearby.</p>
+    <div class="form">
+      <label>Item name</label>
+      <input id="newName" placeholder="e.g. Carpet Cleaner">
+      <label>Category</label>
+      <select id="newCat">
+        <option>Tools</option>
+        <option>Cleaning</option>
+        <option>Outdoor</option>
+      </select>
+      <label>Estimated retail value (RM) <span class="muted" style="font-size:11px">— for AI pricing</span></label>
+      <input id="newRetailValue" type="number" placeholder="e.g. 300" min="1" style="margin-bottom:4px">
+      <label>Item condition</label>
+      <select id="newCondition">
+        <option value="New">New — never used</option>
+        <option value="Good" selected>Good — minor wear</option>
+        <option value="Fair">Fair — visible wear</option>
+        <option value="Worn">Worn — heavy use</option>
+      </select>
+      <button type="button" class="secondary" style="margin:8px 0" onclick="suggestPrice()">✨ AI Suggest Price</button>
+
+      <!-- ── AI Pricing Suggestion Card ───────────────────────── -->
+      <div id="pricingSuggestion" style="display:none;background:rgba(0,200,100,0.07);border:1px solid #00c864;border-radius:12px;padding:14px;margin-bottom:12px;font-size:13px;">
+        <div style="font-weight:700;margin-bottom:10px;">🤖 AI Pricing Suggestion</div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:90px;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
+            <div class="muted" style="font-size:11px;margin-bottom:2px;">Daily Rate</div>
+            <div id="suggestedRate" style="font-size:18px;font-weight:800;color:#00c864;">—</div>
+          </div>
+          <div style="flex:1;min-width:90px;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
+            <div class="muted" style="font-size:11px;margin-bottom:2px;">Deposit</div>
+            <div id="suggestedDeposit" style="font-size:18px;font-weight:800;">—</div>
+          </div>
+          <div style="flex:1;min-width:90px;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
+            <div class="muted" style="font-size:11px;margin-bottom:2px;">Est. Monthly</div>
+            <div id="suggestedMonthly" style="font-size:18px;font-weight:800;color:#f0c040;">—</div>
+          </div>
+        </div>
+        <div id="seasonalityNote" style="margin-bottom:3px;font-size:12px;"></div>
+        <div id="demandNote" style="margin-bottom:6px;font-size:12px;"></div>
+        <div id="geminiReasoning" style="display:none;font-size:12px;color:#ccc;background:rgba(255,255,255,0.04);border-radius:8px;padding:8px;margin-bottom:8px;line-height:1.5;"></div>
+        <div id="poweredBy" style="font-size:10px;color:#666;margin-bottom:10px;"></div>
+        <button type="button" class="primary" style="width:100%;padding:8px;font-size:13px;" onclick="acceptSuggestedPrice()">✅ Accept AI Price</button>
+      </div>
+      <!-- ───────────────────────────────────────────────────────── -->
+
+      <label>Price per day (RM)</label>
+      <input id="newPrice" type="number" value="10" min="1">
+      <label>Deposit (RM) <span class="muted" style="font-size:11px">— auto-filled by AI</span></label>
+      <input id="newDeposit" type="number" value="0" min="0">
+      <label>Location</label>
+      <input id="newLocation" placeholder="e.g. UTM / Apartment area">
+      <label>Description</label>
+      <textarea id="newDesc" placeholder="Short description..."></textarea>
+      <button class="primary" onclick="addItem()">Publish item</button>
+    </div>
+  </section>
+
+  <!-- BOOKINGS PAGE -->
+  <section id="bookings" class="page">
+    <h1>My bookings</h1>
+    <div id="bookingList"></div>
+  </section>
+
+  <!-- PROFILE PAGE -->
+  <section id="profile" class="page">
+    <h1>My profile</h1>
+    <div class="statgrid">
+      <div class="stat"><b>4.9 ★</b><br><span class="muted">Rating</span></div>
+      <div class="stat"><b id="bookingCount">0</b><br><span class="muted">Bookings</span></div>
+      <div class="stat"><b id="statVerify">Unverified</b><br><span class="muted">Identity status</span></div>
+    </div>
+    <div class="form" style="margin-top:18px">
+      <label>Email Status</label>
+      <div id="profVerifyStatus" style="padding: 10px; background: #222; border-radius: 6px; margin-bottom: 12px; font-size: 14px;">
+        <span id="profVerifyBadge"></span>
+        <button id="profVerifyBtn" class="secondary" style="float: right; padding: 4px 10px; font-size: 12px; display: none;" onclick="openOtpModal(() => updateProfileUI())">Verify Now</button>
+      </div>
+      <label>Name</label>
+      <input id="profName" value="">
+      <label>Community</label>
+      <input value="Local Community">
+      <button class="primary" onclick="toast('Profile saved')">Save profile</button>
+    </div>
+  </section>
+</main>
+
+<footer>BorrowLoop · Build Stronger Communities.</footer>
+
+<!-- Floating AI Support Button -->
+<button class="chat-widget-btn" onclick="toggleSupportChat()">🤖</button>
+
+<!-- Support Chatbox Container -->
+<div id="aiChatBox" class="chat-widget-box">
+  <div class="chat-header">
+    <span>🤖 BorrowBot AI Support</span>
+    <button style="background:none; border:none; color:#aaa; font-size:16px; cursor:pointer;" onclick="toggleSupportChat()">✕</button>
+  </div>
+  <div id="aiChatBody" class="chat-body">
+    <div class="chat-msg ai">Hi! I'm BorrowBot 🤖. How can I help you with borrowing, listing items, or payments today?</div>
+  </div>
+  <div class="chat-footer">
+    <input id="aiChatInput" placeholder="Ask a question..." onkeydown="if(event.key==='Enter') sendAISupportMsg()">
+    <button style="padding: 8px 14px; background: var(--green); color: #000; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;" onclick="sendAISupportMsg()">Send</button>
+  </div>
+</div>
+
+<!-- Modal Container -->
+<div id="modal" class="modal">
+  <div class="modal-box" id="modalContent"></div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

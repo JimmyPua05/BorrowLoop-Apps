@@ -1,0 +1,202 @@
+[
+  {
+    "instruction": "What is BorrowLoop?",
+    "output": "BorrowLoop is a community-based peer-to-peer sharing marketplace where users can lend and borrow household items, tools, equipment, and outdoor gear locally."
+  },
+  {
+    "instruction": "How do I list an item for rent on BorrowLoop?",
+    "output": "Log in to your account, click the 'List Item' tab, fill in the item name, category, daily rental price in RM, location, description, and click 'Publish item'."
+  },
+  {
+    "instruction": "What payment methods are supported on BorrowLoop?",
+    "output": "BorrowLoop supports secure payments via major Credit/Debit Cards and Malaysian Online Banking (FPX) like Maybank2u, CIMB Clicks, Public Bank, and RHB Now."
+  },
+  {
+    "instruction": "What password rules must I follow when signing up?",
+    "output": "Your password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number."
+  },
+  {
+    "instruction": "Is an email required to log in or register?",
+    "output": "Yes, you must provide a valid email address format (e.g., user@domain.com) along with your password to access protected pages."
+  },
+  {
+    "instruction": "What pages require me to be logged in?",
+    "output": "You need to log in to access the List Item page, My Bookings, My Profile, and to proceed with booking or item checkouts."
+  },
+  {
+    "instruction": "How is the total checkout cost calculated?",
+    "output": "The total cost is calculated by multiplying the daily rate by the rental duration in days, plus a flat RM 2.50 Community Protection Fee."
+  },
+  {
+    "instruction": "What is the Community Protection Fee?",
+    "output": "It is a standard RM 2.50 fee added to every rental transaction to cover platform security, SSL encryption, and community protection."
+  },
+  {
+    "instruction": "How do I contact an item owner?",
+    "output": "Once you have a confirmed booking, go to 'My Bookings' and click the 'Chat owner' button to send direct messages to the lender."
+  },
+  {
+    "instruction": "Can I borrow items without creating an account?",
+    "output": "You can browse items freely, but you must log in or create an account when attempting to complete a booking checkout or list an item."
+  },
+  {
+    "instruction": "What item categories are available on BorrowLoop?",
+    "output": "BorrowLoop features items under three main categories: Tools, Cleaning, and Outdoor equipment."
+  },
+  {
+    "instruction": "What happens if my return date is earlier than my start date?",
+    "output": "The system will block the reservation and display an error message stating that the return date must be after the start date."
+  },
+  {
+    "instruction": "How do I find items close to my current location?",
+    "output": "On the Browse page, click the 'Near me' button in the search bar to filter items located around your local community or neighborhood."
+  },
+  {
+    "instruction": "How do I edit my profile name?",
+    "output": "Navigate to the 'Profile' section, enter your updated full name in the Name field, and click 'Save profile'."
+  },
+  {
+    "instruction": "What information is shown in the My Profile tab?",
+    "output": "Your profile displays your average user rating (e.g., 4.9 stars), total booking count, identity verification status, and registered community."
+  },
+  {
+    "instruction": "How do I set a reminder to return an item?",
+    "output": "Go to the 'My Bookings' section on your dashboard and click the 'Return reminder' button on your active rental card."
+  },
+  {
+    "instruction": "How does the checkout security work?",
+    "output": "BorrowLoop uses 256-bit SSL encryption to safely process credit card details and online banking transactions."
+  },
+  {
+    "instruction": "What happens if I try to publish an item without an item name or price?",
+    "output": "The app will display a notification saying 'Please enter item name and price' and will not allow you to publish until filled."
+  },
+  {
+    "instruction": "How are daily rental rates billed?",
+    "output": "Rental days are calculated as full 24-hour days starting from your selected Start Date to your selected Return Date."
+  },
+  {
+    "instruction": "What details do I need to provide for Credit Card payments?",
+    "output": "You must provide the Cardholder Name, Card Number, Expiry Date (MM/YY), and CVV security code."
+  },
+  {
+    "instruction": "What banks are available for Online Banking (FPX)?",
+    "output": "You can select Maybank2u, CIMB Clicks, Public Bank, or RHB Now at checkout."
+  },
+  {
+    "instruction": "Where do I check my past and active rentals?",
+    "output": "All active, paid, and confirmed items appear on your 'My Bookings' page."
+  },
+  {
+    "instruction": "What should I do if I forget my password?",
+    "output": "You can re-register or contact platform support to trigger a credential reset for your registered email."
+  },
+  {
+    "instruction": "Who sets the daily price for rented items?",
+    "output": "Item owners set their own daily rental prices in RM when listing equipment on the platform."
+  },
+  {
+    "instruction": "How do I search for a specific tool like a drill or ladder?",
+    "output": "Use the search bar on the home page to filter available items by typing keywords like 'Drill' or 'Ladder'."
+  },
+  {
+    "instruction": "Is there a deposit required to borrow items?",
+    "output": "Payment totals include your daily rental rate and protection fee. Deposit rules vary depending on verified lender requirements."
+  },
+  {
+    "instruction": "How do I sign out of BorrowLoop?",
+    "output": "Click the Logout button located at the top-right corner of the navigation bar."
+  },
+  {
+    "instruction": "What items are available in the Cleaning category?",
+    "output": "Common cleaning equipment includes Carpet Cleaners, Pressure Washers, and heavy-duty vacuums."
+  },
+  {
+    "instruction": "What items are available in the Tools category?",
+    "output": "Tools include equipment like Extension Ladders, Tile Cutters, Cordless Drill Sets, and general hand tools."
+  },
+  {
+    "instruction": "How does BorrowLoop promote sustainability?",
+    "output": "By enabling neighbor-to-neighbor sharing, BorrowLoop reduces unnecessary consumer purchasing, landfill waste, and product consumption."
+  },
+  {
+    "instruction": "Why was my password rejected during sign up?",
+    "output": "Your password was likely rejected because it lacked an uppercase letter, lowercase letter, number, or was under 8 characters long."
+  },
+  {
+    "instruction": "What happens if I try to sign up with an invalid email?",
+    "output": "The form displays an error stating 'Please enter a valid email address.' and prevents account creation."
+  },
+  {
+    "instruction": "Can I reserve an item for just 1 day?",
+    "output": "Yes, selecting the same start and end date counts as a 1-day rental."
+  },
+  {
+    "instruction": "Where are items stored when I publish them?",
+    "output": "Listings are stored locally in the browser storage and are instantly available under the 'Available nearby' grid."
+  },
+  {
+    "instruction": "Can I cancel a booking after paying?",
+    "output": "You can view active bookings under 'My Bookings' and message the owner directly to negotiate a schedule change or cancellation."
+  },
+  {
+    "instruction": "Is there a guest checkout option available?",
+    "output": "No guest checkout is allowed; users are redirected to log in or register before completing payment."
+  },
+  {
+    "instruction": "How do I know if an item owner is verified?",
+    "output": "Listed item cards display a 'Verified owner' badge next to the owner's profile info."
+  },
+  {
+    "instruction": "What items are under the Outdoor category?",
+    "output": "The Outdoor category includes gear like camping tents, sleeping bags, and portable outdoor gear."
+  },
+  {
+    "instruction": "How do I clear category filters when browsing?",
+    "output": "Click the 'All' filter button above the item grid to view all listings across all categories."
+  },
+  {
+    "instruction": "How much does a Carpet Cleaner cost per day on BorrowLoop?",
+    "output": "The default Carpet Cleaner listing starts at RM 25 per day."
+  },
+  {
+    "instruction": "How much does a Cordless Drill Set cost per day?",
+    "output": "The default Cordless Drill Set listing starts at RM 12 per day."
+  },
+  {
+    "instruction": "What is the fee for an Extension Ladder?",
+    "output": "The default Extension Ladder rental rate is RM 15 per day."
+  },
+  {
+    "instruction": "Can I modify my listing price after publishing?",
+    "output": "Currently, you can publish items with a specific price; updates can be managed through profile dashboard management."
+  },
+  {
+    "instruction": "How do I switch between Login and Signup modes?",
+    "output": "Inside the authentication modal, click the 'Log In' or 'Sign Up' tab at the top of the form."
+  },
+  {
+    "instruction": "Does BorrowLoop keep my payment credentials safe?",
+    "output": "Yes, payment forms use 256-bit SSL encrypted channels and do not store raw card numbers locally."
+  },
+  {
+    "instruction": "What happens if I click 'List Item' while logged out?",
+    "output": "The app shows a notification saying 'Please log in to view this page' and automatically opens the login dialog."
+  },
+  {
+    "instruction": "How can I check if my payment went through?",
+    "output": "A successful payment displays a confirmation toast and automatically creates an entry under 'My Bookings'."
+  },
+  {
+    "instruction": "What is the identity verification status on my profile?",
+    "output": "All active registered users receive a default 'Verified' status badge on their profile dashboard."
+  },
+  {
+    "instruction": "Can I communicate with owners before booking?",
+    "output": "You can click 'View' on any item card to review details and request a booking to open direct messaging."
+  },
+  {
+    "instruction": "Who can I ask if I get stuck while using BorrowLoop?",
+    "output": "You can ask BorrowBot, our 24/7 AI Customer Support assistant available via the floating chat widget!"
+  }
+]
