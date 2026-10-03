@@ -68,8 +68,4 @@ Built-in OTP (One-Time Password) email verification system ensures all users are
    ```
    The server will start at `http://0.0.0.0:5000`. Open this in your browser to access BorrowLoop!
 
-## 🤝 Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
 
-## 📝 License
-This project is open-source and available under the MIT License.
